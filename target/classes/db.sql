@@ -32,16 +32,17 @@ CREATE TABLE `user`
     `users`    varchar(255) DEFAULT NULL,
     `img`      varchar(255) DEFAULT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=807 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 --  Records of `test_0`
 -- ----------------------------
-BEGIN;
-INSERT INTO `test_0`
-VALUES ('0', '960401', '吴月', '13971706944', '1996-04-01', '960401', '951102', '');
-VALUES ('1', '951102', '林生雨', '15734066007', '1995-11-02', '951102', '960401', '');
-COMMIT;
+INSERT INTO `user`
+VALUES (1, '960401', '吴月', '13971706944', '1996-04-01', '960401', '951102', '');
+
+INSERT INTO `user`
+VALUES (2, '951102', '林生雨', '15734066007', '1995-11-02', '951102', '960401', '');
+
 
 -- ----------------------------
 --  Table structure for `test_1`

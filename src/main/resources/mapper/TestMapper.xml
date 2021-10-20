@@ -23,7 +23,7 @@
         where id = #{id}
     </update>
 
-    <select id="getAllUser">
+    <select id="getAllUser" resultType="java.util.Map">
         select *
         from user
     </select>
