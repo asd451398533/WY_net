@@ -43,18 +43,30 @@ VALUES (1, '960401', '吴月', '13971706944', '1996-04-01', '960401', '951102', 
 INSERT INTO `user`
 VALUES (2, '951102', '林生雨', '15734066007', '1995-11-02', '951102', '960401', '');
 
+INSERT INTO `user`
+VALUES (3, '951102', '啊', '15734066007', '1995-11-02', '951102', '960401', '');
+
 
 -- ----------------------------
 --  Table structure for `test_1`
 -- ----------------------------
-DROP TABLE IF EXISTS `test_1`;
-CREATE TABLE `test_1`
+DROP TABLE IF EXISTS `bill`;
+CREATE TABLE `bill`
 (
-    `id`    int(11) NOT NULL AUTO_INCREMENT,
-    `key`   varchar(255) DEFAULT NULL,
-    `value` varchar(255) DEFAULT NULL,
+    `id`    int(255) NOT NULL AUTO_INCREMENT,
+    `money` double DEFAULT NULL,
+    `userKey` varchar(255) DEFAULT NULL,
+    `remarkId` varchar(255) DEFAULT NULL,
+    `remark` varchar(255) DEFAULT NULL,
+    `categoryImage` varchar(255) DEFAULT NULL,
+    `type` int(11) DEFAULT NULL,
+    `isDelete` int(11) DEFAULT NULL,
+    `createTimestamp` varchar(255) DEFAULT NULL,
+    `createTime` varchar(255) DEFAULT NULL,
+    `updateTimestamp` varchar(255) DEFAULT NULL,
+    `updateTime` varchar(255) DEFAULT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=689 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 --  Table structure for `test_2`

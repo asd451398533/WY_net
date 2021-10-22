@@ -1,5 +1,6 @@
 package com.example.lsy.mapper;
 
+import com.example.lsy.bean.Bill;
 import com.example.lsy.bean.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -11,6 +12,11 @@ import java.util.Map;
 public interface TestMapper {
 
     List<User> getAllUser();
+
+    User findUserByName(@Param("name") String name);
+
+    int addBill(@Param("bill") Bill bill);
+
 
     int saveTableTest(@Param("table") String table,
                       @Param("key") String key,

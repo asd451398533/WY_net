@@ -1,5 +1,6 @@
 package com.example.lsy.service.impl;
 
+import com.example.lsy.bean.Bill;
 import com.example.lsy.bean.User;
 import com.example.lsy.mapper.TestMapper;
 import com.example.lsy.service.TestService;
@@ -20,6 +21,16 @@ public class TestServiceImpl implements TestService {
     @Override
     public List<User> getAllUser() {
         return testMapper.getAllUser();
+    }
+
+    @Override
+    public int addBill(Bill bill) {
+        return testMapper.addBill(bill);
+    }
+
+    @Override
+    public User findUserByName(String name) {
+        return testMapper.findUserByName(name);
     }
 
     @Override
