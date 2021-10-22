@@ -15,12 +15,22 @@
     </insert>
 
     <insert id="addBill" parameterType="com.example.lsy.bean.Bill">
-        insert into bill(money,userKey,remarkId,remark,categoryImage,type,isDelete,createTimestamp,createTime
-        ,updateTimestamp,updateTime)
-        values (  #{bill.money}, #{bill.userKey}, #{bill.remarkId}
-               , #{bill.remark}, #{bill.categoryImage}, #{bill.type}, #{bill.isDelete}, #{bill.createTimestamp}, #{bill.createTime}
+        insert into bill( money, userKey, remarkId, remark, categoryImage, type, isDelete, createTimestamp, createTime
+                        , updateTimestamp, updateTime)
+        values ( #{bill.money}, #{bill.userKey}, #{bill.remarkId}
+               , #{bill.remark}, #{bill.categoryImage}, #{bill.type}, #{bill.isDelete}, #{bill.createTimestamp}
+               , #{bill.createTime}
                , #{bill.updateTimestamp}
                , #{bill.updateTime})
+    </insert>
+
+    <insert id="addRemark" parameterType="com.example.lsy.bean.RemarkBean">
+        insert into remark( userKey, remarkId, remark, billId, createTimestamp, createTime
+                          , updateTimestamp, updateTime)
+        values ( #{remark.userKey}, #{remark.remarkId}
+               , #{remark.remark}, #{remark.billId}, #{remark.createTimestamp}, #{remark.createTime}
+               , #{remark.updateTimestamp}
+               , #{remark.updateTime})
     </insert>
 
     <update id="updateTest">
@@ -29,6 +39,12 @@
             `value` = #{value}
         where id = #{id}
     </update>
+
+    <select id="getBillIdByRemarkId" resultType="com.example.lsy.bean.Bill">
+        select *
+        from bill
+        where remarkId = #{remarkId}
+    </select>
 
     <select id="getAllUser" resultType="java.util.Map">
         select *

@@ -1,6 +1,8 @@
 package com.example.lsy.controller;
 
 import com.example.lsy.bean.Bill;
+import com.example.lsy.bean.RemarkBean;
+import com.example.lsy.bean.SimpleReturn;
 import com.example.lsy.bean.User;
 import com.example.lsy.service.TestService;
 import org.apache.commons.logging.Log;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/app")
@@ -38,10 +41,37 @@ public class TestController {
 
     @RequestMapping(value = "/addBill", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     @ResponseBody
-    public int findUserByName(@RequestBody Bill bill) {
-//        System.console().printf("MMMM" + (bill==null));
-        log.info("MMMM" + (bill.money));
-        return testService.addBill(bill);
+    public SimpleReturn addBill(@RequestBody Bill bill) {
+        String remarkId = UUID.randomUUID().toString().replace("-", "");
+        bill.remarkId = remarkId;
+        bill.isDelete = 0;
+        int i = testService.addBill(bill);
+        if (i == 1) {
+            Bill billIdByRemarkId = testService.getBillIdByRemarkId(remarkId);
+            if (billIdByRemarkId != null) {
+                RemarkBean remarkBean = new RemarkBean();
+                remarkBean.remarkId = remarkId;
+                remarkBean.billId = billIdByRemarkId.id;
+                remarkBean.createTime = billIdByRemarkId.createTime;
+                remarkBean.createTimestamp = billIdByRemarkId.createTimestamp;
+                remarkBean.updateTime = billIdByRemarkId.updateTime;
+                remarkBean.updateTimestamp = billIdByRemarkId.updateTimestamp;
+                remarkBean.remark = billIdByRemarkId.remark;
+                remarkBean.userKey = billIdByRemarkId.userKey;
+                int i1 = testService.addRemark(remarkBean);
+                if (i1 == 1) {
+                    return new SimpleReturn(200, "");
+                }
+            }
+        }
+        return new SimpleReturn(500, "");
+    }
+
+    @RequestMapping(value = "/addRemark", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public int addRemark(@RequestBody RemarkBean remarkBean) {
+        log.info("MMMM" + (remarkBean.remark));
+        return testService.addRemark(remarkBean);
     }
 
 

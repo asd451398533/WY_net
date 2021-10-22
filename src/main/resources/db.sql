@@ -23,7 +23,7 @@ FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`
 (
-    `id`       int(11) NOT NULL AUTO_INCREMENT,
+    `id`       int(255) NOT NULL AUTO_INCREMENT,
     `key`      varchar(255) DEFAULT NULL,
     `name`     varchar(255) DEFAULT NULL,
     `phone`    varchar(255) DEFAULT NULL,
@@ -53,18 +53,34 @@ VALUES (3, '951102', '啊', '15734066007', '1995-11-02', '951102', '960401', '')
 DROP TABLE IF EXISTS `bill`;
 CREATE TABLE `bill`
 (
-    `id`    int(255) NOT NULL AUTO_INCREMENT,
-    `money` double DEFAULT NULL,
-    `userKey` varchar(255) DEFAULT NULL,
-    `remarkId` varchar(255) DEFAULT NULL,
-    `remark` varchar(255) DEFAULT NULL,
-    `categoryImage` varchar(255) DEFAULT NULL,
-    `type` int(11) DEFAULT NULL,
-    `isDelete` int(11) DEFAULT NULL,
+    `id`              int(255) NOT NULL AUTO_INCREMENT,
+    `money`           double       DEFAULT NULL,
+    `userKey`         varchar(255) DEFAULT NULL,
+    `remarkId`        varchar(255) DEFAULT NULL,
+    `remark`          varchar(255) DEFAULT NULL,
+    `categoryImage`   varchar(255) DEFAULT NULL,
+    `type`            int(11) DEFAULT NULL,
+    `isDelete`        int(11) DEFAULT NULL,
     `createTimestamp` varchar(255) DEFAULT NULL,
-    `createTime` varchar(255) DEFAULT NULL,
+    `createTime`      varchar(255) DEFAULT NULL,
     `updateTimestamp` varchar(255) DEFAULT NULL,
-    `updateTime` varchar(255) DEFAULT NULL,
+    `updateTime`      varchar(255) DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+DROP TABLE IF EXISTS `remark`;
+CREATE TABLE `remark`
+(
+    `id`              int(255) NOT NULL AUTO_INCREMENT,
+    `userKey`         varchar(255) DEFAULT NULL,
+    `remarkId`        varchar(255) DEFAULT NULL,
+    `remark`          varchar(255) DEFAULT NULL,
+    `billId`          int(255) DEFAULT NULL,
+    `createTimestamp` varchar(255) DEFAULT NULL,
+    `createTime`      varchar(255) DEFAULT NULL,
+    `updateTimestamp` varchar(255) DEFAULT NULL,
+    `updateTime`      varchar(255) DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

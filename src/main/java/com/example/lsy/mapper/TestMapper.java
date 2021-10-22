@@ -1,6 +1,7 @@
 package com.example.lsy.mapper;
 
 import com.example.lsy.bean.Bill;
+import com.example.lsy.bean.RemarkBean;
 import com.example.lsy.bean.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -17,6 +18,9 @@ public interface TestMapper {
 
     int addBill(@Param("bill") Bill bill);
 
+    int addRemark(@Param("remark") RemarkBean remark);
+
+    Bill getBillIdByRemarkId(@Param("remarkId") String remarkId);
 
     int saveTableTest(@Param("table") String table,
                       @Param("key") String key,

@@ -1,6 +1,7 @@
 package com.example.lsy.service;
 
 import com.example.lsy.bean.Bill;
+import com.example.lsy.bean.RemarkBean;
 import com.example.lsy.bean.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,10 @@ public interface TestService {
     List<User> getAllUser();
 
     int addBill(Bill bill);
+
+    int addRemark(RemarkBean remark);
+
+    Bill getBillIdByRemarkId(String remarkId);
 
     User findUserByName(String name);
 

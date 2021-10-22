@@ -1,6 +1,7 @@
 package com.example.lsy.service.impl;
 
 import com.example.lsy.bean.Bill;
+import com.example.lsy.bean.RemarkBean;
 import com.example.lsy.bean.User;
 import com.example.lsy.mapper.TestMapper;
 import com.example.lsy.service.TestService;
@@ -26,6 +27,16 @@ public class TestServiceImpl implements TestService {
     @Override
     public int addBill(Bill bill) {
         return testMapper.addBill(bill);
+    }
+
+    @Override
+    public int addRemark(RemarkBean remark) {
+        return testMapper.addRemark(remark);
+    }
+
+    @Override
+    public Bill getBillIdByRemarkId(String remarkId) {
+        return testMapper.getBillIdByRemarkId(remarkId);
     }
 
     @Override
