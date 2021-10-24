@@ -18,6 +18,12 @@ public interface TestMapper {
 
     int addBill(@Param("bill") Bill bill);
 
+    int updateBill(@Param("bill") Bill bill);
+
+    int updateRemark(@Param("remark") RemarkBean remark);
+
+    List<RemarkBean> getRemarkByRemarkId(@Param("remarkId") String remarkId);
+
     int addRemark(@Param("remark") RemarkBean remark);
 
     Bill getBillIdByRemarkId(@Param("remarkId") String remarkId);
@@ -25,6 +31,8 @@ public interface TestMapper {
     int saveTableTest(@Param("table") String table,
                       @Param("key") String key,
                       @Param("value") String value);
+
+    List<Bill> getBillByUserKey(@Param("userKey") String userKey);
 
     int saveTest(@Param("key") String key,
                  @Param("value") String value);

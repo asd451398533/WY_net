@@ -10,8 +10,10 @@ com\example\lsy\mapper\TestMapper.class
 com\example\lsy\util\UrlRequestUtil$2.class
 com\example\lsy\bean\SimpleReturn.class
 com\example\lsy\bean\RemarkBean.class
+com\example\lsy\controller\TestController$2.class
 com\example\lsy\controller\TestController.class
 com\example\lsy\util\UrlRequestUtil$1.class
 com\example\lsy\LsyApplication.class
+com\example\lsy\controller\TestController$1.class
 com\example\lsy\bean\SingleWorldBean.class
 com\example\lsy\service\impl\TestServiceImpl.class

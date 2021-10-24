@@ -20,6 +20,11 @@ public class TestServiceImpl implements TestService {
     private TestMapper testMapper;
 
     @Override
+    public List<Bill> getBillByUserKey(String userKey) {
+        return testMapper.getBillByUserKey(userKey);
+    }
+
+    @Override
     public List<User> getAllUser() {
         return testMapper.getAllUser();
     }
@@ -27,6 +32,21 @@ public class TestServiceImpl implements TestService {
     @Override
     public int addBill(Bill bill) {
         return testMapper.addBill(bill);
+    }
+
+    @Override
+    public int updateBill(Bill bill) {
+        return testMapper.updateBill(bill);
+    }
+
+    @Override
+    public List<RemarkBean> getRemarkByRemarkId(String remarkId) {
+        return testMapper.getRemarkByRemarkId(remarkId);
+    }
+
+    @Override
+    public int updateRemark(RemarkBean remark) {
+        return testMapper.updateRemark(remark);
     }
 
     @Override

@@ -44,7 +44,7 @@ INSERT INTO `user`
 VALUES (2, '951102', '林生雨', '15734066007', '1995-11-02', '951102', '960401', '');
 
 INSERT INTO `user`
-VALUES (3, '951102', '啊', '15734066007', '1995-11-02', '951102', '960401', '');
+VALUES (3, '111', '啊', '15734066007', '1995-11-02', '951102', '960401', '');
 
 
 -- ----------------------------
@@ -74,6 +74,7 @@ CREATE TABLE `remark`
 (
     `id`              int(255) NOT NULL AUTO_INCREMENT,
     `userKey`         varchar(255) DEFAULT NULL,
+    `isDelete`        int(255) DEFAULT NULL,
     `remarkId`        varchar(255) DEFAULT NULL,
     `remark`          varchar(255) DEFAULT NULL,
     `billId`          int(255) DEFAULT NULL,

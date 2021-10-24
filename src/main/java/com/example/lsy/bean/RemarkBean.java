@@ -11,6 +11,8 @@ public class RemarkBean {
     public String remark;
 
     public int billId;
+    /// 是否已删除 0没有 1删除
+    public int isDelete;
 
     public long createTimestamp;
 

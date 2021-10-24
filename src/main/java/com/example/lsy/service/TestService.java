@@ -12,9 +12,17 @@ import java.util.Map;
 @Service
 public interface TestService {
 
+    List<Bill> getBillByUserKey(@Param("userKey") String userKey);
+
     List<User> getAllUser();
 
     int addBill(Bill bill);
+
+    int updateBill(Bill bill);
+
+    List<RemarkBean> getRemarkByRemarkId( String remarkId);
+
+    int updateRemark( RemarkBean remark);
 
     int addRemark(RemarkBean remark);
 
