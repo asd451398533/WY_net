@@ -71,6 +71,41 @@ public class TestController {
         return new SimpleReturn(500, "");
     }
 
+    @RequestMapping(value = "/addXT", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public SimpleReturn addBill(@RequestBody XT xt) {
+        if (xt.id > 0) {
+            int i = testService.updateXT(xt);
+            if (i == 1) {
+                return new SimpleReturn(200, "");
+            }
+            return new SimpleReturn(500, "");
+        }
+        String remarkId = UUID.randomUUID().toString().replace("-", "");
+        xt.remarkId = remarkId;
+        xt.isDelete = 0;
+        int i = testService.addXT(xt);
+        if (i == 1) {
+            XT billIdByRemarkId = testService.getXTIdByRemarkId(remarkId);
+            if (billIdByRemarkId != null) {
+                XTRemarkBean remarkBean = new XTRemarkBean();
+                remarkBean.remarkId = remarkId;
+                remarkBean.xtId = billIdByRemarkId.id;
+                remarkBean.createTime = billIdByRemarkId.createTime;
+                remarkBean.createTimestamp = billIdByRemarkId.createTimestamp;
+                remarkBean.updateTime = billIdByRemarkId.updateTime;
+                remarkBean.updateTimestamp = billIdByRemarkId.updateTimestamp;
+                remarkBean.remark = billIdByRemarkId.remark;
+                remarkBean.userKey = billIdByRemarkId.userKey;
+                int i1 = testService.addXTRemark(remarkBean);
+                if (i1 == 1) {
+                    return new SimpleReturn(200, "");
+                }
+            }
+        }
+        return new SimpleReturn(500, "");
+    }
+
     @RequestMapping(value = "/addRemark", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     @ResponseBody
     public SimpleReturn addRemark(@RequestBody RemarkBean remarkBean) {
@@ -90,19 +125,37 @@ public class TestController {
     }
 
 
+    @RequestMapping(value = "/addXTRemark", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public SimpleReturn addXTRemark(@RequestBody XTRemarkBean remarkBean) {
+        if (remarkBean.id > 0) {
+            int i = testService.updateXTRemark(remarkBean);
+            if (i == 1) {
+                return new SimpleReturn(200, "");
+            }
+            return new SimpleReturn(500, "");
+        }
+        log.info("MMMM" + (remarkBean.remark));
+        int i = testService.addXTRemark(remarkBean);
+        if (i == 1) {
+            return new SimpleReturn(200, "");
+        }
+        return new SimpleReturn(500, "");
+    }
+
+
     @RequestMapping(value = "/getBillByUserKey", method = RequestMethod.GET)
     @ResponseBody
     public List<Bill> getBillByUserKey(@RequestParam("userKey") String userKey) {
         log.info("name=>" + userKey);
-        List<Bill> billByUserKey = testService.getBillByUserKey(userKey);
-        billByUserKey.sort(new Comparator<Bill>() {
-            @Override
-            public int compare(Bill o1, Bill o2) {
-                return (int) (o2.updateTimestamp - o1.updateTimestamp);
-            }
-        });
-        log.info("billByUserKey->" + billByUserKey);
-        return billByUserKey;
+        return testService.getBillByUserKey(userKey);
+    }
+
+    @RequestMapping(value = "/getXTByUserKey", method = RequestMethod.GET)
+    @ResponseBody
+    public List<XT> getXTByUserKey(@RequestParam("userKey") String userKey) {
+        log.info("name=>" + userKey);
+        return testService.getXTByUserKey(userKey);
     }
 
     @RequestMapping(value = "/getRemarkByRemarkId", method = RequestMethod.GET)
@@ -110,12 +163,15 @@ public class TestController {
     public List<RemarkBean> getRemarkByRemarkId(@RequestParam("remarkId") String remarkId) {
         log.info("name=>" + remarkId);
         List<RemarkBean> remarkByRemarkId = testService.getRemarkByRemarkId(remarkId);
-        remarkByRemarkId.sort(new Comparator<RemarkBean>() {
-            @Override
-            public int compare(RemarkBean o1, RemarkBean o2) {
-                return (int) (o2.updateTimestamp - o1.updateTimestamp);
-            }
-        });
+        log.info("billByUserKey->" + remarkByRemarkId);
+        return remarkByRemarkId;
+    }
+
+    @RequestMapping(value = "/getXTRemarkByRemarkId", method = RequestMethod.GET)
+    @ResponseBody
+    public List<XTRemarkBean> getXTRemarkByRemarkId(@RequestParam("remarkId") String remarkId) {
+        log.info("name=>" + remarkId);
+        List<XTRemarkBean> remarkByRemarkId = testService.getXTRemarkByRemarkId(remarkId);
         log.info("billByUserKey->" + remarkByRemarkId);
         return remarkByRemarkId;
     }

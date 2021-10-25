@@ -1,8 +1,6 @@
 package com.example.lsy.service.impl;
 
-import com.example.lsy.bean.Bill;
-import com.example.lsy.bean.RemarkBean;
-import com.example.lsy.bean.User;
+import com.example.lsy.bean.*;
 import com.example.lsy.mapper.TestMapper;
 import com.example.lsy.service.TestService;
 import com.example.lsy.util.Utils;
@@ -60,8 +58,43 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
+    public XT getXTIdByRemarkId(String remarkId) {
+        return testMapper.getXTIdByRemarkId(remarkId);
+    }
+
+    @Override
     public User findUserByName(String name) {
         return testMapper.findUserByName(name);
+    }
+
+    @Override
+    public List<XT> getXTByUserKey(String userKey) {
+        return testMapper.getXTByUserKey(userKey);
+    }
+
+    @Override
+    public List<XTRemarkBean> getXTRemarkByRemarkId(String remarkId) {
+        return testMapper.getXTRemarkByRemarkId(remarkId);
+    }
+
+    @Override
+    public int updateXTRemark(XTRemarkBean remark) {
+        return testMapper.updateXTRemark(remark);
+    }
+
+    @Override
+    public int addXTRemark(XTRemarkBean remark) {
+        return testMapper.addXTRemark(remark);
+    }
+
+    @Override
+    public int addXT(XT XT) {
+        return testMapper.addXT(XT);
+    }
+
+    @Override
+    public int updateXT(XT XT) {
+        return testMapper.updateXT(XT);
     }
 
     @Override

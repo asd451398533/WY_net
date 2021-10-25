@@ -24,6 +24,43 @@
                , #{bill.updateTime})
     </insert>
 
+    <insert id="updateBill" parameterType="com.example.lsy.bean.Bill">
+        update bill
+        set `money`           = #{bill.money},
+            `userKey`         = #{bill.userKey},
+            `remark`          = #{bill.remark},
+            `categoryImage`   = #{bill.categoryImage},
+            `type`            = #{bill.type},
+            `isDelete`        = #{bill.isDelete},
+            `updateTime`      = #{bill.updateTime},
+            `updateTimestamp` = #{bill.updateTimestamp}
+        where id = #{bill.id}
+    </insert>
+
+    <insert id="addXT" parameterType="com.example.lsy.bean.XT">
+        insert into xt( number, userKey, remarkId, remark, images, foods, type, isDelete, createTimestamp, createTime
+                      , updateTimestamp, updateTime)
+        values ( #{XT.number}, #{XT.userKey}, #{XT.remarkId}
+               , #{XT.remark}, #{XT.images}, #{XT.foods}, #{XT.type}, #{XT.isDelete}, #{XT.createTimestamp}
+               , #{XT.createTime}
+               , #{XT.updateTimestamp}
+               , #{XT.updateTime})
+    </insert>
+
+    <insert id="updateXT" parameterType="com.example.lsy.bean.XT">
+        update xt
+        set `number`          = #{XT.number},
+            `userKey`         = #{XT.userKey},
+            `remark`          = #{XT.remark},
+            `images`          = #{XT.images},
+            `foods`           = #{XT.foods},
+            `type`            = #{XT.type},
+            `isDelete`        = #{XT.isDelete},
+            `updateTime`      = #{XT.updateTime},
+            `updateTimestamp` = #{XT.updateTimestamp}
+        where id = #{XT.id}
+    </insert>
+
     <insert id="addRemark" parameterType="com.example.lsy.bean.RemarkBean">
         insert into remark( userKey, remarkId, isDelete, remark, billId, createTimestamp, createTime
                           , updateTimestamp, updateTime)
@@ -45,6 +82,29 @@
         where id = #{remark.id}
     </insert>
 
+    <insert id="addXTRemark" parameterType="com.example.lsy.bean.XTRemarkBean">
+        insert into xtRemark( userKey, remarkId, isDelete, remark, xtId, images, createTimestamp, createTime
+                            , updateTimestamp, updateTime)
+        values ( #{remark.userKey}, #{remark.remarkId}, #{remark.isDelete}
+               , #{remark.remark}, #{remark.xtId}, #{remark.images}, #{remark.createTimestamp}, #{remark.createTime}
+               , #{remark.updateTimestamp}
+               , #{remark.updateTime})
+    </insert>
+
+    <insert id="updateXTRemark" parameterType="com.example.lsy.bean.XTRemarkBean">
+        update xtRemark
+        set `remarkId`        = #{remark.remarkId},
+            `userKey`         = #{remark.userKey},
+            `isDelete`        = #{remark.isDelete},
+            `remark`          = #{remark.remark},
+            `xtId`            = #{remark.xtId},
+            `images`          = #{remark.images},
+            `updateTime`      = #{remark.updateTime},
+            `updateTimestamp` = #{remark.updateTimestamp}
+        where id = #{remark.id}
+    </insert>
+
+
     <update id="updateTest">
         update test_0
         set `key`   = #{key},
@@ -52,22 +112,17 @@
         where id = #{id}
     </update>
 
-    <insert id="updateBill" parameterType="com.example.lsy.bean.Bill">
-        update bill
-        set `money`           = #{bill.money},
-            `userKey`         = #{bill.userKey},
-            `remark`          = #{bill.remark},
-            `categoryImage`   = #{bill.categoryImage},
-            `type`            = #{bill.type},
-            `isDelete`        = #{bill.isDelete},
-            `updateTime`      = #{bill.updateTime},
-            `updateTimestamp` = #{bill.updateTimestamp}
-        where id = #{bill.id}
-    </insert>
 
     <select id="getBillIdByRemarkId" resultType="com.example.lsy.bean.Bill">
         select *
         from bill
+        where remarkId = #{remarkId}
+          AND isDelete = 0
+    </select>
+
+    <select id="getXTIdByRemarkId" resultType="com.example.lsy.bean.XT">
+        select *
+        from xt
         where remarkId = #{remarkId}
           AND isDelete = 0
     </select>
@@ -80,12 +135,27 @@
           AND isDelete = 0
     </select>
 
+    <select id="getXTByUserKey" resultType="com.example.lsy.bean.XT">
+        select *
+        from xt
+        where userKey = #{userKey}
+          AND isDelete = 0
+    </select>
+
     <select id="getRemarkByRemarkId" resultType="com.example.lsy.bean.RemarkBean">
         select *
         from remark
         where remarkId = #{remarkId}
           AND isDelete = 0
     </select>
+
+    <select id="getXTRemarkByRemarkId" resultType="com.example.lsy.bean.XTRemarkBean">
+        select *
+        from xtRemark
+        where remarkId = #{remarkId}
+          AND isDelete = 0
+    </select>
+
 
     <select id="getAllUser" resultType="java.util.Map">
         select *

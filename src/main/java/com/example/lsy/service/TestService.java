@@ -1,8 +1,6 @@
 package com.example.lsy.service;
 
-import com.example.lsy.bean.Bill;
-import com.example.lsy.bean.RemarkBean;
-import com.example.lsy.bean.User;
+import com.example.lsy.bean.*;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
@@ -20,15 +18,29 @@ public interface TestService {
 
     int updateBill(Bill bill);
 
-    List<RemarkBean> getRemarkByRemarkId( String remarkId);
+    List<RemarkBean> getRemarkByRemarkId(String remarkId);
 
-    int updateRemark( RemarkBean remark);
+    int updateRemark(RemarkBean remark);
 
     int addRemark(RemarkBean remark);
 
     Bill getBillIdByRemarkId(String remarkId);
 
+    XT getXTIdByRemarkId(String remarkId);
+
     User findUserByName(String name);
+
+    List<XT> getXTByUserKey(String userKey);
+
+    List<XTRemarkBean> getXTRemarkByRemarkId(String remarkId);
+
+    int updateXTRemark(XTRemarkBean remark);
+
+    int addXTRemark(XTRemarkBean remark);
+
+    int addXT(XT XT);
+
+    int updateXT(XT XT);
 
     int testSplitTable();
 

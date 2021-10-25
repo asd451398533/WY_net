@@ -1,8 +1,6 @@
 package com.example.lsy.mapper;
 
-import com.example.lsy.bean.Bill;
-import com.example.lsy.bean.RemarkBean;
-import com.example.lsy.bean.User;
+import com.example.lsy.bean.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -18,21 +16,32 @@ public interface TestMapper {
 
     int addBill(@Param("bill") Bill bill);
 
+    int addXT(@Param("XT") XT XT);
+
+    int updateXT(@Param("XT") XT XT);
+
     int updateBill(@Param("bill") Bill bill);
 
     int updateRemark(@Param("remark") RemarkBean remark);
 
+
     List<RemarkBean> getRemarkByRemarkId(@Param("remarkId") String remarkId);
+    List<XTRemarkBean> getXTRemarkByRemarkId(@Param("remarkId") String remarkId);
 
     int addRemark(@Param("remark") RemarkBean remark);
 
+    int updateXTRemark(@Param("remark") XTRemarkBean remark);
+    int addXTRemark(@Param("remark") XTRemarkBean remark);
+
     Bill getBillIdByRemarkId(@Param("remarkId") String remarkId);
+    XT getXTIdByRemarkId(@Param("remarkId") String remarkId);
 
     int saveTableTest(@Param("table") String table,
                       @Param("key") String key,
                       @Param("value") String value);
 
     List<Bill> getBillByUserKey(@Param("userKey") String userKey);
+    List<XT> getXTByUserKey(@Param("userKey") String userKey);
 
     int saveTest(@Param("key") String key,
                  @Param("value") String value);
