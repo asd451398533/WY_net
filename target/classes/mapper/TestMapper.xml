@@ -38,10 +38,12 @@
     </insert>
 
     <insert id="addXT" parameterType="com.example.lsy.bean.XT">
-        insert into xt( number, userKey, remarkId, remark, images, foods, type, isDelete, createTimestamp, createTime
+        insert into xt( number, userKey, remarkId, remark, categoryImage, images, foods, type, isDelete, createTimestamp
+                      , createTime
                       , updateTimestamp, updateTime)
         values ( #{XT.number}, #{XT.userKey}, #{XT.remarkId}
-               , #{XT.remark}, #{XT.images}, #{XT.foods}, #{XT.type}, #{XT.isDelete}, #{XT.createTimestamp}
+               , #{XT.remark}, #{XT.categoryImage}, #{XT.images}, #{XT.foods}, #{XT.type}, #{XT.isDelete}
+               , #{XT.createTimestamp}
                , #{XT.createTime}
                , #{XT.updateTimestamp}
                , #{XT.updateTime})
@@ -52,6 +54,7 @@
         set `number`          = #{XT.number},
             `userKey`         = #{XT.userKey},
             `remark`          = #{XT.remark},
+            `categoryImage`   = #{XT.categoryImage},
             `images`          = #{XT.images},
             `foods`           = #{XT.foods},
             `type`            = #{XT.type},
