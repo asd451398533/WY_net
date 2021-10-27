@@ -18,6 +18,8 @@ public interface TestMapper {
 
     int addXT(@Param("XT") XT XT);
 
+    int addFK(@Param("FK") FK FK);
+
     int addImage(@Param("Image") ImagesBean Image);
 
     int updateXT(@Param("XT") XT XT);
@@ -25,6 +27,8 @@ public interface TestMapper {
     int updateBill(@Param("bill") Bill bill);
 
     int updateRemark(@Param("remark") RemarkBean remark);
+
+    List<Food> getFoods();
 
 
     List<RemarkBean> getRemarkByRemarkId(@Param("remarkId") String remarkId);

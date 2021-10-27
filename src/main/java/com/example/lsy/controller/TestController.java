@@ -75,6 +75,17 @@ public class TestController {
         return new SimpleReturn(500, "");
     }
 
+
+    @RequestMapping(value = "/addFK", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public SimpleReturn addFK(@RequestBody FK fk) {
+        int i = testService.addFK(fk);
+        if (i == 1) {
+            return new SimpleReturn(200, "");
+        }
+        return new SimpleReturn(500, "");
+    }
+
     @RequestMapping(value = "/addXT", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     @ResponseBody
     public SimpleReturn addBill(@RequestBody XT xt) {
@@ -160,6 +171,13 @@ public class TestController {
     public List<XT> getXTByUserKey(@RequestParam("userKey") String userKey) {
         log.info("name=>" + userKey);
         return testService.getXTByUserKey(userKey);
+    }
+
+
+    @RequestMapping(value = "/getFoods", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Food> getFoods() {
+        return testService.getFoods();
     }
 
     @RequestMapping(value = "/getRemarkByRemarkId", method = RequestMethod.GET)

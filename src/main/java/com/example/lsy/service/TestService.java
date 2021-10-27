@@ -30,6 +30,10 @@ public interface TestService {
 
     XT getXTIdByRemarkId(String remarkId);
 
+    List<Food> getFoods();
+
+    int addFK(FK FK);
+
     User findUserByName(String name);
 
     List<XT> getXTByUserKey(String userKey);

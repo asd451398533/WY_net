@@ -68,6 +68,16 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
+    public List<Food> getFoods() {
+        return testMapper.getFoods();
+    }
+
+    @Override
+    public int addFK(FK FK) {
+        return testMapper.addFK(FK);
+    }
+
+    @Override
     public User findUserByName(String name) {
         return testMapper.findUserByName(name);
     }

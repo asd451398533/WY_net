@@ -12,6 +12,8 @@ com/example/lsy/bean/SingleWorldBean.class
 com/example/lsy/util/UrlRequestUtil$1.class
 com/example/lsy/util/Utils.class
 com/example/lsy/bean/SimpleReturn.class
+com/example/lsy/bean/Food.class
+com/example/lsy/bean/FK.class
 com/example/lsy/controller/TestController.class
 com/example/lsy/LsyApplication.class
 com/example/lsy/bean/XT.class

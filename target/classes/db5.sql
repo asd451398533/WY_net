@@ -1,0 +1,334 @@
+/*
+ Navicat MySQL Data Transfer
+
+ Source Server         : 本地
+ Source Server Type    : MySQL
+ Source Server Version : 80015
+ Source Host           : localhost
+ Source Database       : tcy
+
+ Target Server Type    : MySQL
+ Target Server Version : 80015
+ File Encoding         : utf-8
+
+ Date: 09/25/2020 14:37:09 PM
+*/
+
+SET
+FOREIGN_KEY_CHECKS = 0;
+
+
+-- ----------------------------
+--  Table structure for `test_1`
+-- ----------------------------
+DROP TABLE IF EXISTS `foods`;
+CREATE TABLE `foods`
+(
+    `id`    int(255) NOT NULL AUTO_INCREMENT,
+    `name`  TEXT   DEFAULT NULL,
+    `gi`    double DEFAULT NULL,
+    `other` TEXT   DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO  `foods`  VALUES (1, '葡萄糖', 100, '' );
+INSERT INTO  `foods`  VALUES (2, '绵白糖', 84, '' );
+INSERT INTO  `foods`  VALUES (3, '蔗糖', 65, '' );
+INSERT INTO  `foods`  VALUES (4, '果糖', 23, '' );
+INSERT INTO  `foods`  VALUES (5, '乳糖', 46, '' );
+INSERT INTO  `foods`  VALUES (6, '麦芽糖', 105, '' );
+INSERT INTO  `foods`  VALUES (7, '蜂蜜', 73, '' );
+INSERT INTO  `foods`  VALUES (8, '胶质软糖', 80, '' );
+INSERT INTO  `foods`  VALUES (9, '巧克力', 49, '' );
+INSERT INTO  `foods`  VALUES (10, 'MM巧克力', 32, '' );
+INSERT INTO  `foods`  VALUES (11, '方糖', 65, '' );
+INSERT INTO  `foods`  VALUES (12, '小麦', 41, '' );
+INSERT INTO  `foods`  VALUES (13, '粗麦粉', 65, '' );
+INSERT INTO  `foods`  VALUES (14, '面条（强化蛋白质，细煮）', 27, '' );
+INSERT INTO  `foods`  VALUES (15, '面条（全麦粉，细）', 37, '' );
+INSERT INTO  `foods`  VALUES (16, '面条（白细，煮）', 41, '' );
+INSERT INTO  `foods`  VALUES (17, '面条（硬质小麦粉，细煮）', 55, '' );
+INSERT INTO  `foods`  VALUES (18, '线面条（实心，细）', 35, '' );
+INSERT INTO  `foods`  VALUES (19, '通心面（管状，粗）', 45, '' );
+INSERT INTO  `foods`  VALUES (20, '面条（小麦粉，硬，扁粗）', 46, '' );
+INSERT INTO  `foods`  VALUES (21, '面条（硬质小麦粉，加鸡蛋，粗）', 49, '' );
+INSERT INTO  `foods`  VALUES (22, '面条（硬质小麦粉，细）', 55, '' );
+INSERT INTO  `foods`  VALUES (23, '面条（挂面，全麦粉）', 57, '' );
+INSERT INTO  `foods`  VALUES (24, '面条（挂面，精制小麦粉）', 55, '' );
+INSERT INTO  `foods`  VALUES (25, '馒头（全麦粉）', 82, '' );
+INSERT INTO  `foods`  VALUES (26, '馒头（精制小麦粉）', 85, '' );
+INSERT INTO  `foods`  VALUES (27, '馒头（富强粉）', 88, '' );
+INSERT INTO  `foods`  VALUES (28, '烙饼', 80, '' );
+INSERT INTO  `foods`  VALUES (29, '油条', 75, '' );
+INSERT INTO  `foods`  VALUES (30, '稻麸', 19, '' );
+INSERT INTO  `foods`  VALUES (31, '米粉', 54, '' );
+INSERT INTO  `foods`  VALUES (32, '大米粥', 69, '' );
+INSERT INTO  `foods`  VALUES (33, '大米饭（籼米，糙米）', 71, '' );
+INSERT INTO  `foods`  VALUES (34, '大米饭（粳米，糙米）', 78, '' );
+INSERT INTO  `foods`  VALUES (35, '大米饭（籼米，精米）', 82, '' );
+INSERT INTO  `foods`  VALUES (36, '大米饭（粳米，精米）', 90, '' );
+INSERT INTO  `foods`  VALUES (37, '黏米饭/含直链淀粉高，煮', 50, '' );
+INSERT INTO  `foods`  VALUES (38, '黏米饭/含直链淀粉低，煮', 88, '' );
+INSERT INTO  `foods`  VALUES (39, '黑米饭', 55, '' );
+INSERT INTO  `foods`  VALUES (40, '速冻米饭', 87, '' );
+INSERT INTO  `foods`  VALUES (41, '糯米饭', 87, '' );
+INSERT INTO  `foods`  VALUES (42, '大米糯米粥', 65, '' );
+INSERT INTO  `foods`  VALUES (43, '黑米粥', 42, '' );
+INSERT INTO  `foods`  VALUES (44, '大麦（整粒，煮）', 25, '' );
+INSERT INTO  `foods`  VALUES (45, '大麦粉', 66, '' );
+INSERT INTO  `foods`  VALUES (46, '黑麦（整粒，煮）', 34, '' );
+INSERT INTO  `foods`  VALUES (47, '玉米（甜，煮）', 55, '' );
+INSERT INTO  `foods`  VALUES (48, '玉米面（粗粉，煮）', 68, '' );
+INSERT INTO  `foods`  VALUES (49, '玉米面粥', 50, '' );
+INSERT INTO  `foods`  VALUES (50, '玉米糁粥', 51, '' );
+INSERT INTO  `foods`  VALUES (51, '玉米饼', 46, '' );
+INSERT INTO  `foods`  VALUES (52, '玉米片（市售）', 79, '' );
+INSERT INTO  `foods`  VALUES (53, '玉米片（高纤维，市售）', 74, '' );
+INSERT INTO  `foods`  VALUES (54, '小米（煮）', 71, '' );
+INSERT INTO  `foods`  VALUES (55, '小米粥', 60, '' );
+INSERT INTO  `foods`  VALUES (56, '米饼', 82, '' );
+INSERT INTO  `foods`  VALUES (57, '荞麦（黄）', 54, '' );
+INSERT INTO  `foods`  VALUES (58, '荞麦面条', 59, '' );
+INSERT INTO  `foods`  VALUES (59, '荞麦面馒头', 67, '' );
+INSERT INTO  `foods`  VALUES (60, '燕麦麸', 55, '' );
+INSERT INTO  `foods`  VALUES (61, '莜麦饭（整粒）', 49, '' );
+INSERT INTO  `foods`  VALUES (62, '糜子饭（整粒）', 72, '' );
+INSERT INTO  `foods`  VALUES (63, '燕麦饭（整粒）', 42, '' );
+INSERT INTO  `foods`  VALUES (64, '燕麦片粥', 55, '' );
+INSERT INTO  `foods`  VALUES (65, '即食燕麦粥', 79, '' );
+INSERT INTO  `foods`  VALUES (67, '全麦（全麦面包）', 74, '' );
+INSERT INTO  `foods`  VALUES (68, '面包（未发酵小麦）', 70, '' );
+INSERT INTO  `foods`  VALUES (69, '印度卷饼', 62, '' );
+INSERT INTO  `foods`  VALUES (70, '薄煎饼（美式）', 52, '' );
+INSERT INTO  `foods`  VALUES (71, '意大利面（精制面粉）', 49, '' );
+INSERT INTO  `foods`  VALUES (72, '意大利面（全麦）', 48, '' );
+INSERT INTO  `foods`  VALUES (73, '乌冬面', 55, '' );
+INSERT INTO  `foods`  VALUES (74, '饼干（小麦片）', 69, '' );
+INSERT INTO  `foods`  VALUES (75, '马铃薯', 62, '' );
+INSERT INTO  `foods`  VALUES (76, '马铃薯（煮）', 66, '' );
+INSERT INTO  `foods`  VALUES (77, '马铃薯（烤）', 60, '' );
+INSERT INTO  `foods`  VALUES (78, '马铃薯（蒸）', 65, '' );
+INSERT INTO  `foods`  VALUES (79, '马铃薯（用微波炉烤）', 82, '' );
+INSERT INTO  `foods`  VALUES (80, '马铃薯（烧烤，无油脂）', 85, '' );
+INSERT INTO  `foods`  VALUES (81, '马铃薯泥', 87, '' );
+INSERT INTO  `foods`  VALUES (82, '马铃薯粉条', 13.6, '' );
+INSERT INTO  `foods`  VALUES (83, '马铃薯片（油炸）', 60, '' );
+INSERT INTO  `foods`  VALUES (84, '炸薯条', 60, '' );
+INSERT INTO  `foods`  VALUES (85, '甘薯（山芋）', 54, '' );
+INSERT INTO  `foods`  VALUES (86, '甘薯（红，煮）', 77, '' );
+INSERT INTO  `foods`  VALUES (87, '藕粉', 33, '' );
+INSERT INTO  `foods`  VALUES (88, '茗粉', 35, '' );
+INSERT INTO  `foods`  VALUES (89, '粉丝汤（豌豆）', 32, '' );
+INSERT INTO  `foods`  VALUES (90, '黄豆（浸泡）', 18, '' );
+INSERT INTO  `foods`  VALUES (91, '黄豆（罐头）', 14, '' );
+INSERT INTO  `foods`  VALUES (92, '黄豆挂面（有面粉）', 67, '' );
+INSERT INTO  `foods`  VALUES (93, '豆腐（炖）', 32, '' );
+INSERT INTO  `foods`  VALUES (94, '豆腐（冻）', 22, '' );
+INSERT INTO  `foods`  VALUES (95, '豆腐干', 24, '' );
+INSERT INTO  `foods`  VALUES (96, '绿豆', 27, '' );
+INSERT INTO  `foods`  VALUES (97, '绿豆挂面', 33, '' );
+INSERT INTO  `foods`  VALUES (98, '蚕豆（五香）', 17, '' );
+INSERT INTO  `foods`  VALUES (99, '扁豆', 38, '' );
+INSERT INTO  `foods`  VALUES (100, '扁豆（红，小）', 26, '' );
+INSERT INTO  `foods`  VALUES (101, '扁豆（绿，小）', 30, '' );
+INSERT INTO  `foods`  VALUES (102, '扁豆（绿，小，罐头）', 52, '' );
+INSERT INTO  `foods`  VALUES (103, '小扁豆汤（罐头）', 44, '' );
+INSERT INTO  `foods`  VALUES (104, '利马豆（棉豆）', 31, '' );
+INSERT INTO  `foods`  VALUES (105, '利马豆（加5克蔗糖）', 30, '' );
+INSERT INTO  `foods`  VALUES (106, '利马豆（加10克蔗糖）', 31, '' );
+INSERT INTO  `foods`  VALUES (107, '利马豆（嫩，冷冻）', 32, '' );
+INSERT INTO  `foods`  VALUES (108, '鹰嘴豆', 33, '' );
+INSERT INTO  `foods`  VALUES (109, '鹰嘴豆（罐头）', 42, '' );
+INSERT INTO  `foods`  VALUES (110, '咖喱鹰嘴豆（罐头）', 41, '' );
+INSERT INTO  `foods`  VALUES (111, '青刀豆', 39, '' );
+INSERT INTO  `foods`  VALUES (112, '青刀豆（罐头）', 45, '' );
+INSERT INTO  `foods`  VALUES (113, '豌豆', 42, '' );
+INSERT INTO  `foods`  VALUES (114, '黑马诺豆', 46, '' );
+INSERT INTO  `foods`  VALUES (115, '黑豆汤', 46, '' );
+INSERT INTO  `foods`  VALUES (116, '四季豆', 27, '' );
+INSERT INTO  `foods`  VALUES (117, '四季豆（高压处理）', 34, '' );
+INSERT INTO  `foods`  VALUES (118, '四季豆（罐头）', 52, '' );
+INSERT INTO  `foods`  VALUES (119, '芸豆', 24, '' );
+INSERT INTO  `foods`  VALUES (120, '甜菜', 64, '' );
+INSERT INTO  `foods`  VALUES (121, '胡萝卜（金笋）', 71, '' );
+INSERT INTO  `foods`  VALUES (122, '南瓜（倭瓜、番瓜）', 75, '' );
+INSERT INTO  `foods`  VALUES (123, '麝香瓜', 65, '' );
+INSERT INTO  `foods`  VALUES (124, '山药（薯茄)√', 51, '' );
+INSERT INTO  `foods`  VALUES (125, '雪魔芋', 17, '' );
+INSERT INTO  `foods`  VALUES (126, '芋头（蒸芋友/毛芋）', 48, '' );
+INSERT INTO  `foods`  VALUES (127, '朝鲜笋', 15, '' );
+INSERT INTO  `foods`  VALUES (128, '芦笋', 15, '' );
+INSERT INTO  `foods`  VALUES (129, '绿菜花', 15, '' );
+INSERT INTO  `foods`  VALUES (130, '菜花', 15, '' );
+INSERT INTO  `foods`  VALUES (131, '芹菜', 15, '' );
+INSERT INTO  `foods`  VALUES (132, '黄瓜', 15, '' );
+INSERT INTO  `foods`  VALUES (133, '茄子', 15, '' );
+INSERT INTO  `foods`  VALUES (134, '鲜青豆', 15, '' );
+INSERT INTO  `foods`  VALUES (135, '莴笋（各种类型）', 15, '' );
+INSERT INTO  `foods`  VALUES (136, '生菜', 15, '' );
+INSERT INTO  `foods`  VALUES (137, '青椒', 15, '' );
+INSERT INTO  `foods`  VALUES (138, '西红柿', 15, '' );
+INSERT INTO  `foods`  VALUES (139, '菠菜', 15, '' );
+INSERT INTO  `foods`  VALUES (140, '胡萝卜（煮）', 39, '' );
+INSERT INTO  `foods`  VALUES (141, '苹果', 36, '' );
+INSERT INTO  `foods`  VALUES (142, '梨', 36, '' );
+INSERT INTO  `foods`  VALUES (143, '桃', 28, '' );
+INSERT INTO  `foods`  VALUES (144, '桃（罐头，含果汁）', 30, '' );
+INSERT INTO  `foods`  VALUES (145, '桃（罐头，含糖浓度低）', 52, '' );
+INSERT INTO  `foods`  VALUES (146, '桃（罐头，含糖浓度高）', 58, '' );
+INSERT INTO  `foods`  VALUES (147, '杏干', 31, '' );
+INSERT INTO  `foods`  VALUES (148, '杏罐头，含淡味果汁', 64, '' );
+INSERT INTO  `foods`  VALUES (149, '李子', 24, '' );
+INSERT INTO  `foods`  VALUES (150, '樱桃', 22, '' );
+INSERT INTO  `foods`  VALUES (151, '葡萄', 43, '' );
+INSERT INTO  `foods`  VALUES (152, '葡萄干', 64, '' );
+INSERT INTO  `foods`  VALUES (153, '葡萄（淡黄色，小，无核）', 56, '' );
+INSERT INTO  `foods`  VALUES (154, '猕猴桃', 52, '' );
+INSERT INTO  `foods`  VALUES (155, '柑（橘子）', 43, '' );
+INSERT INTO  `foods`  VALUES (156, '柚', 25, '' );
+INSERT INTO  `foods`  VALUES (157, '巴婆果', 58, '' );
+INSERT INTO  `foods`  VALUES (158, '菠萝', 66, '' );
+INSERT INTO  `foods`  VALUES (159, '芒果', 55, '' );
+INSERT INTO  `foods`  VALUES (160, '芭蕉（甘蕉板蕉）', 53, '' );
+INSERT INTO  `foods`  VALUES (161, '香蕉', 52, '' );
+INSERT INTO  `foods`  VALUES (162, '香蕉（生）', 30, '' );
+INSERT INTO  `foods`  VALUES (163, '西瓜', 72, '' );
+INSERT INTO  `foods`  VALUES (164, '哈密瓜', 70, '' );
+INSERT INTO  `foods`  VALUES (165, '枣', 42, '' );
+INSERT INTO  `foods`  VALUES (166, '草莓酱（果冻）', 49, '' );
+INSERT INTO  `foods`  VALUES (167, '花生', 14, '' );
+INSERT INTO  `foods`  VALUES (168, '腰果', 25, '' );
+INSERT INTO  `foods`  VALUES (169, '牛奶', 27.6, '' );
+INSERT INTO  `foods`  VALUES (170, '牛奶（加糖和巧克力）', 34, '' );
+INSERT INTO  `foods`  VALUES (171, '牛奶（加人工甜味剂和巧克力）', 24, '' );
+INSERT INTO  `foods`  VALUES (172, '全脂牛奶', 27, '' );
+INSERT INTO  `foods`  VALUES (173, '脱脂牛奶', 32, '' );
+INSERT INTO  `foods`  VALUES (174, '低脂奶粉', 11.9, '' );
+INSERT INTO  `foods`  VALUES (175, '降糖奶粉', 26, '' );
+INSERT INTO  `foods`  VALUES (176, '老年奶粉', 40, '' );
+INSERT INTO  `foods`  VALUES (177, '克糖奶粉', 47.6, '' );
+INSERT INTO  `foods`  VALUES (178, '酸奶（加糖）', 48, '' );
+INSERT INTO  `foods`  VALUES (179, '酸乳酪（普通）', 36, '' );
+INSERT INTO  `foods`  VALUES (180, '酸乳酪（低脂）', 33, '' );
+INSERT INTO  `foods`  VALUES (181, '酸乳酪（低脂，加人工甜味剂）', 14, '' );
+INSERT INTO  `foods`  VALUES (184, '酸奶（水果）', 41, '' );
+INSERT INTO  `foods`  VALUES (185, '豆奶', 34, '' );
+INSERT INTO  `foods`  VALUES (186, '大米（即食，煮1分钟）', 46, '' );
+INSERT INTO  `foods`  VALUES (187, '大米（即食，煮6分钟）', 87, '' );
+INSERT INTO  `foods`  VALUES (188, '小麦片', 69, '' );
+INSERT INTO  `foods`  VALUES (189, '燕麦片（混合）', 83, '' );
+INSERT INTO  `foods`  VALUES (190, '荞麦方便面', 53, '' );
+INSERT INTO  `foods`  VALUES (191, '即食羹', 69, '' );
+INSERT INTO  `foods`  VALUES (192, '营养饼', 66, '' );
+INSERT INTO  `foods`  VALUES (193, '全麦维（家乐氏）', 42, '' );
+INSERT INTO  `foods`  VALUES (194, '可可米（家乐氏）', 77, '' );
+INSERT INTO  `foods`  VALUES (195, '卜卜米（家乐氏）', 88, '' );
+INSERT INTO  `foods`  VALUES (196, '比萨饼（含乳酪）', 60, '' );
+INSERT INTO  `foods`  VALUES (197, '汉堡包', 61, '' );
+INSERT INTO  `foods`  VALUES (198, '白面包', 88, '' );
+INSERT INTO  `foods`  VALUES (199, '面包（全麦粉）', 69, '' );
+INSERT INTO  `foods`  VALUES (200, '面包（粗面粉）', 64, '' );
+INSERT INTO  `foods`  VALUES (201, '面包（黑麦粉）', 65, '' );
+INSERT INTO  `foods`  VALUES (202, '面包（小麦粉，高纤维）', 68, '' );
+INSERT INTO  `foods`  VALUES (203, '面包（小麦粉，去面筋）', 70, '' );
+INSERT INTO  `foods`  VALUES (204, '面包（小麦粉，含水果干）', 47, '' );
+INSERT INTO  `foods`  VALUES (205, '面包（50%~80%碎小麦粒）', 52, '' );
+INSERT INTO  `foods`  VALUES (206, '面包（75%~80%大麦粒）', 34, '' );
+INSERT INTO  `foods`  VALUES (207, '面包（50%大麦粒）', 46, '' );
+INSERT INTO  `foods`  VALUES (208, '面包（80%~100%大麦粉）', 66, '' );
+INSERT INTO  `foods`  VALUES (209, '面包（黑麦粒）', 50, '' );
+INSERT INTO  `foods`  VALUES (210, '面包（45%~50%燕麦麸）', 47, '' );
+INSERT INTO  `foods`  VALUES (211, '面包（80%燕麦粒）', 65, '' );
+INSERT INTO  `foods`  VALUES (212, '面包（混合谷物）', 45, '' );
+INSERT INTO  `foods`  VALUES (213, '新月形面包', 67, '' );
+INSERT INTO  `foods`  VALUES (214, '棍子面包', 90, '' );
+INSERT INTO  `foods`  VALUES (215, '燕麦粗粉饼干', 55, '' );
+INSERT INTO  `foods`  VALUES (216, '油酥脆饼干', 64, '' );
+INSERT INTO  `foods`  VALUES (217, '高纤维黑麦薄脆饼干', 65, '' );
+INSERT INTO  `foods`  VALUES (218, '竹芋粉饼干', 66, '' );
+INSERT INTO  `foods`  VALUES (219, '小麦饼干', 70, '' );
+INSERT INTO  `foods`  VALUES (220, '苏打饼干', 72, '' );
+INSERT INTO  `foods`  VALUES (221, '格雷厄姆华饼干', 74, '' );
+INSERT INTO  `foods`  VALUES (222, '华夫饼干', 76, '' );
+INSERT INTO  `foods`  VALUES (223, '香草华夫饼干', 77, '' );
+INSERT INTO  `foods`  VALUES (224, '膨化薄脆饼干', 81, '' );
+INSERT INTO  `foods`  VALUES (225, '闲趣饼干（达能）', 47, '' );
+INSERT INTO  `foods`  VALUES (226, '牛奶香脆饼干（达能）', 39, '' );
+INSERT INTO  `foods`  VALUES (227, '酥皮糕点', 59, '' );
+INSERT INTO  `foods`  VALUES (228, '爆玉米花', 55, '' );
+INSERT INTO  `foods`  VALUES (229, '苹果汁', 41, '' );
+INSERT INTO  `foods`  VALUES (230, '水蜜桃汁', 33, '' );
+INSERT INTO  `foods`  VALUES (231, '巴梨汁（罐头）', 44, '' );
+INSERT INTO  `foods`  VALUES (232, '波萝汁（不加糖）', 46, '' );
+INSERT INTO  `foods`  VALUES (233, '柚子果汁（不加糖）', 48, '' );
+INSERT INTO  `foods`  VALUES (234, '橙汁（纯果汁）', 50, '' );
+INSERT INTO  `foods`  VALUES (235, '橘子汁', 57, '' );
+INSERT INTO  `foods`  VALUES (236, '可乐饮料', 40, '' );
+INSERT INTO  `foods`  VALUES (237, '芬达软饮料', 68, '' );
+INSERT INTO  `foods`  VALUES (238, '啤酒（澳大利亚产）', 66, '' );
+INSERT INTO  `foods`  VALUES (239, '冰淇淋', 61, '' );
+INSERT INTO  `foods`  VALUES (240, '冰淇淋/低脂', 50, '' );
+INSERT INTO  `foods`  VALUES (241, '馒头 芹菜炒鸡蛋', 49, '' );
+INSERT INTO  `foods`  VALUES (242, '馒头 酱牛肉', 49, '' );
+INSERT INTO  `foods`  VALUES (243, '馒头 黄油', 68, '' );
+INSERT INTO  `foods`  VALUES (244, '饼 鸡蛋炒木耳', 48, '' );
+INSERT INTO  `foods`  VALUES (245, '饺子/三鲜', 28, '' );
+INSERT INTO  `foods`  VALUES (246, '包子/芹菜猪肉', 39, '' );
+INSERT INTO  `foods`  VALUES (247, '硬质小麦粉肉馅馄饨', 39, '' );
+INSERT INTO  `foods`  VALUES (248, '牛肉面', 89, '' );
+INSERT INTO  `foods`  VALUES (249, '米饭 鱼', 37, '' );
+INSERT INTO  `foods`  VALUES (250, '米饭 芹菜炒猪肉', 57, '' );
+INSERT INTO  `foods`  VALUES (251, '米饭 炒蒜苗', 58, '' );
+INSERT INTO  `foods`  VALUES (252, '米饭 蒜苗炒鸡蛋', 68, '' );
+INSERT INTO  `foods`  VALUES (253, '米饭 红烧猪肉', 73, '' );
+INSERT INTO  `foods`  VALUES (254, '玉米粉加入人造黄油/煮', 69, '' );
+INSERT INTO  `foods`  VALUES (255, '猪肉炖粉条', 17, '' );
+INSERT INTO  `foods`  VALUES (256, '西红柿汤', 38, '' );
+INSERT INTO  `foods`  VALUES (257, '二合面窝头/玉米面 面粉', 65, '' );
+INSERT INTO  `foods`  VALUES (258, '牛奶蛋糊/牛奶 淀粉 糖', 43, '' );
+INSERT INTO  `foods`  VALUES (259, '黑五类粉', 58, '' );
+INSERT INTO  `foods`  VALUES (260, '洋葱', 12.9, '' );
+INSERT INTO  `foods`  VALUES (261, '黑豆', 42, '' );
+INSERT INTO  `foods`  VALUES (262, '柚子', 25, '' );
+INSERT INTO  `foods`  VALUES (263, '牛油果', 27, '' );
+INSERT INTO  `foods`  VALUES (264, '柠檬', 34, '' );
+INSERT INTO  `foods`  VALUES (265, '木瓜', 25, '' );
+INSERT INTO  `foods`  VALUES (266, '草莓', 29, '' );
+INSERT INTO  `foods`  VALUES (268, '杨桃', 42, '' );
+INSERT INTO  `foods`  VALUES (269, '香瓜', 56, '' );
+INSERT INTO  `foods`  VALUES (270, '火龙果', 25, '' );
+INSERT INTO  `foods`  VALUES (271, '番石榴', 31, '' );
+INSERT INTO  `foods`  VALUES (272, '奇异果', 35, '' );
+INSERT INTO  `foods`  VALUES (273, '蓝莓', 34, '' );
+INSERT INTO  `foods`  VALUES (274, '凤梨', 65, '' );
+INSERT INTO  `foods`  VALUES (275, '龙眼', 53, '' );
+INSERT INTO  `foods`  VALUES (276, '椰子', 40, '' );
+INSERT INTO  `foods`  VALUES (277, '大枣', 103, '' );
+INSERT INTO  `foods`  VALUES (278, '鲜板栗', 53, '' );
+INSERT INTO  `foods`  VALUES (279, '油豆腐', 43, '' );
+INSERT INTO  `foods`  VALUES (280, '海胆', 44, '' );
+INSERT INTO  `foods`  VALUES (281, '沙丁鱼', 40, '' );
+INSERT INTO  `foods`  VALUES (282, '鲍鱼', 44, '' );
+INSERT INTO  `foods`  VALUES (283, '毛豆', 30, '' );
+INSERT INTO  `foods`  VALUES (286, '韭菜', 52, '' );
+INSERT INTO  `foods`  VALUES (287, '莲藕', 38, '' );
+INSERT INTO  `foods`  VALUES (288, '木耳', 26, '' );
+INSERT INTO  `foods`  VALUES (290, '豆芽菜', 22, '' );
+INSERT INTO  `foods`  VALUES (292, '葱', 30, '' );
+INSERT INTO  `foods`  VALUES (293, '蘑菇', 24, '' );
+INSERT INTO  `foods`  VALUES (295, '白萝卜', 26, '' );
+INSERT INTO  `foods`  VALUES (296, '苦瓜', 24, '' );
+INSERT INTO  `foods`  VALUES (297, '莴苣', 23, '' );
+INSERT INTO  `foods`  VALUES (298, '海带', 17, '' );
+INSERT INTO  `foods`  VALUES (299, '香菇', 28, '' );
+INSERT INTO  `foods`  VALUES (300, '奶油蛋糕', 86, '' );
+INSERT INTO  `foods`  VALUES (301, '红豆沙', 80, '' );
+INSERT INTO  `foods`  VALUES (302, '果冻', 46, '' );
+INSERT INTO  `foods`  VALUES (303, '布丁', 52, '' );
+INSERT INTO  `foods`  VALUES (304, '甜甜圈', 86, '' );
+INSERT INTO  `foods`  VALUES (305, '仙贝', 80, '' );
+INSERT INTO  `foods`  VALUES (306, '土豆粉条（鲜）', 13.6, '' );
+INSERT INTO  `foods`  VALUES (307, '红枣（鲜）', 42, '' );
+
+SET
+FOREIGN_KEY_CHECKS = 1;

@@ -1,6 +1,7 @@
 /Users/linyusheng/IdeaProjects/lsy/src/main/java/com/example/lsy/util/UrlRequestUtil.java
 /Users/linyusheng/IdeaProjects/lsy/src/main/java/com/example/lsy/bean/User.java
 /Users/linyusheng/IdeaProjects/lsy/src/main/java/com/example/lsy/LsyApplication.java
+/Users/linyusheng/IdeaProjects/lsy/src/main/java/com/example/lsy/bean/Food.java
 /Users/linyusheng/IdeaProjects/lsy/src/main/java/com/example/lsy/bean/SingleWorldBean.java
 /Users/linyusheng/IdeaProjects/lsy/src/main/java/com/example/lsy/bean/XT.java
 /Users/linyusheng/IdeaProjects/lsy/src/main/java/com/example/lsy/bean/ImagesBean.java
@@ -13,6 +14,7 @@
 /Users/linyusheng/IdeaProjects/lsy/src/main/java/com/example/lsy/bean/RemarkBean.java
 /Users/linyusheng/IdeaProjects/lsy/src/main/java/com/example/lsy/bean/Bill.java
 /Users/linyusheng/IdeaProjects/lsy/src/main/java/com/example/lsy/controller/TestController.java
+/Users/linyusheng/IdeaProjects/lsy/src/main/java/com/example/lsy/bean/FK.java
 /Users/linyusheng/IdeaProjects/lsy/src/main/java/com/example/lsy/util/Utils.java
 /Users/linyusheng/IdeaProjects/lsy/src/main/java/com/example/lsy/service/MyConfiguration.java
 /Users/linyusheng/IdeaProjects/lsy/src/main/java/com/example/lsy/service/TestService.java
