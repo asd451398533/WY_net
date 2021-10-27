@@ -18,6 +18,8 @@ public interface TestMapper {
 
     int addXT(@Param("XT") XT XT);
 
+    int addImage(@Param("Image") ImagesBean Image);
+
     int updateXT(@Param("XT") XT XT);
 
     int updateBill(@Param("bill") Bill bill);
@@ -26,14 +28,17 @@ public interface TestMapper {
 
 
     List<RemarkBean> getRemarkByRemarkId(@Param("remarkId") String remarkId);
+
     List<XTRemarkBean> getXTRemarkByRemarkId(@Param("remarkId") String remarkId);
 
     int addRemark(@Param("remark") RemarkBean remark);
 
     int updateXTRemark(@Param("remark") XTRemarkBean remark);
+
     int addXTRemark(@Param("remark") XTRemarkBean remark);
 
     Bill getBillIdByRemarkId(@Param("remarkId") String remarkId);
+
     XT getXTIdByRemarkId(@Param("remarkId") String remarkId);
 
     int saveTableTest(@Param("table") String table,
@@ -41,6 +46,7 @@ public interface TestMapper {
                       @Param("value") String value);
 
     List<Bill> getBillByUserKey(@Param("userKey") String userKey);
+
     List<XT> getXTByUserKey(@Param("userKey") String userKey);
 
     int saveTest(@Param("key") String key,

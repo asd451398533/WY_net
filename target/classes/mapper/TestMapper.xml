@@ -49,6 +49,14 @@
                , #{XT.updateTime})
     </insert>
 
+    <insert id="addImage" parameterType="com.example.lsy.bean.ImagesBean">
+        insert into images( path, userKey, name, isDelete, createTimestamp
+                          , createTime)
+        values ( #{Image.path}, #{Image.userKey}, #{Image.name}, #{Image.isDelete}
+               , #{Image.createTimestamp}
+               , #{Image.createTime})
+    </insert>
+
     <insert id="updateXT" parameterType="com.example.lsy.bean.XT">
         update xt
         set `number`          = #{XT.number},

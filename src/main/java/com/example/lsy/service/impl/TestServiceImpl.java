@@ -48,6 +48,11 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
+    public int addImage(ImagesBean Image) {
+        return testMapper.addImage(Image);
+    }
+
+    @Override
     public int addRemark(RemarkBean remark) {
         return testMapper.addRemark(remark);
     }

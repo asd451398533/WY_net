@@ -22,6 +22,8 @@ public interface TestService {
 
     int updateRemark(RemarkBean remark);
 
+    int addImage(ImagesBean Image);
+
     int addRemark(RemarkBean remark);
 
     Bill getBillIdByRemarkId(String remarkId);

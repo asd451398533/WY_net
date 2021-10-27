@@ -7,8 +7,12 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Comparator;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.UUID;
 
@@ -174,6 +178,74 @@ public class TestController {
         List<XTRemarkBean> remarkByRemarkId = testService.getXTRemarkByRemarkId(remarkId);
         log.info("billByUserKey->" + remarkByRemarkId);
         return remarkByRemarkId;
+    }
+
+    private static final String UPLOAD_DIR = "/Users/linyusheng/Downloads/";
+
+    @ResponseBody
+    @RequestMapping("/upload")
+    public SimpleReturn fileUpload(@RequestParam("file") MultipartFile files,
+                                   String id,
+                                   String userKey,
+                                   String createTimestamp,
+                                   String createTime
+    ) throws IOException {
+        File pathFile = new File(UPLOAD_DIR);
+        if (!pathFile.exists()) {
+            pathFile.mkdirs();
+        }
+        //上传文件地址
+        UUID uuid = UUID.randomUUID();
+        File serverFile = new File(pathFile, uuid + "_" + files.getOriginalFilename());
+        files.transferTo(serverFile);
+
+        log.info("PATH -> " + serverFile.getAbsolutePath());
+        ImagesBean imagesBean = new ImagesBean();
+        imagesBean.name = serverFile.getName();
+        imagesBean.path = serverFile.getAbsolutePath();
+        imagesBean.isDelete = 0;
+        imagesBean.userKey = userKey;
+        imagesBean.createTime = createTime;
+        imagesBean.createTimestamp = createTimestamp;
+        int i = testService.addImage(imagesBean);
+        if (i == 1) {
+            return new SimpleReturn(200, serverFile.getAbsolutePath());
+        }
+        return new SimpleReturn(500, serverFile.getAbsolutePath());
+    }
+
+    @RequestMapping(value = "/download")
+    public String downloads(HttpServletResponse response, HttpServletRequest request) throws Exception {
+        //要下载的图片地址
+        String path = UPLOAD_DIR;
+
+        String fileName = request.getParameter("fileName");
+        log.info("FILE NAME -> " + fileName);
+
+        //1、设置response 响应头
+        response.reset(); //设置页面不缓存,清空buffer
+        response.setCharacterEncoding("UTF-8"); //字符编码
+        response.setContentType("multipart/form-data"); //二进制传输数据
+        //设置响应头
+        response.setHeader("Content-Disposition",
+                "attachment;fileName=" + URLEncoder.encode(fileName, "UTF-8"));
+
+        File file = new File(path, fileName);
+        //2、 读取文件--输入流
+        InputStream input = new FileInputStream(file);
+        //3、 写出文件--输出流
+        OutputStream out = response.getOutputStream();
+
+        byte[] buff = new byte[1024];
+        int index = 0;
+        //4、执行 写出操作
+        while ((index = input.read(buff)) != -1) {
+            out.write(buff, 0, index);
+            out.flush();
+        }
+        out.close();
+        input.close();
+        return null;
     }
 }
 
