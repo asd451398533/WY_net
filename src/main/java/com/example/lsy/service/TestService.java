@@ -22,11 +22,17 @@ public interface TestService {
 
     int updateRemark(RemarkBean remark);
 
+    int addImage(ImagesBean Image);
+
     int addRemark(RemarkBean remark);
 
     Bill getBillIdByRemarkId(String remarkId);
 
     XT getXTIdByRemarkId(String remarkId);
+
+    List<Food> getFoods();
+
+    int addFK(FK FK);
 
     User findUserByName(String name);
 

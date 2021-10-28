@@ -49,6 +49,19 @@
                , #{XT.updateTime})
     </insert>
 
+    <insert id="addImage" parameterType="com.example.lsy.bean.ImagesBean">
+        insert into images( path, userKey, name, isDelete, createTimestamp
+                          , createTime)
+        values ( #{Image.path}, #{Image.userKey}, #{Image.name}, #{Image.isDelete}
+               , #{Image.createTimestamp}
+               , #{Image.createTime})
+    </insert>
+
+    <insert id="addFK" parameterType="com.example.lsy.bean.FK">
+        insert into fk(word)
+        values (#{FK.word})
+    </insert>
+
     <insert id="updateXT" parameterType="com.example.lsy.bean.XT">
         update xt
         set `number`          = #{XT.number},
@@ -128,6 +141,11 @@
         from xt
         where remarkId = #{remarkId}
           AND isDelete = 0
+    </select>
+
+    <select id="getFoods" resultType="com.example.lsy.bean.Food">
+        select *
+        from foods
     </select>
 
 

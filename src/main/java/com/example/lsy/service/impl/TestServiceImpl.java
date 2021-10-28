@@ -48,6 +48,11 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
+    public int addImage(ImagesBean Image) {
+        return testMapper.addImage(Image);
+    }
+
+    @Override
     public int addRemark(RemarkBean remark) {
         return testMapper.addRemark(remark);
     }
@@ -60,6 +65,16 @@ public class TestServiceImpl implements TestService {
     @Override
     public XT getXTIdByRemarkId(String remarkId) {
         return testMapper.getXTIdByRemarkId(remarkId);
+    }
+
+    @Override
+    public List<Food> getFoods() {
+        return testMapper.getFoods();
+    }
+
+    @Override
+    public int addFK(FK FK) {
+        return testMapper.addFK(FK);
     }
 
     @Override
